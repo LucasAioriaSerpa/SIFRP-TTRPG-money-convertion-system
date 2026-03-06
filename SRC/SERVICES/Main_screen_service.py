@@ -8,6 +8,7 @@ class Main_screen_service(Service):
         self.__log.log_info("Inicializando Main_screen_service!")
         self.main_screen_view = self.loadView("main_screen")
     
+
     def button_clicked(self, caption):
         """when a btn is clicked"""
         """
@@ -17,8 +18,16 @@ class Main_screen_service(Service):
         """
         
         match caption:
-            case "My button":
-                self.__log.log_info("Hello world!")
+            case "My button":   self.__log.log_info("Hello world!")
+            case "Add":         self._button_add()
+            case "Debit":       self._button_debit()
+
+    #? adiciona valor
+    def _button_add(self):
+        ...
+
+    #? remove valor
+    def _button_debit(self):
         ...
 
     """@Override!"""

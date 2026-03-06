@@ -21,6 +21,8 @@ class Main_screen_view(ctk.CTk, View):
         "ouro": { "dragão(ões)DeOuro(s)": 0 }
     }
     BUTTON_CAPTION = [
+        "Add",
+        "Debit",
         "My button",
         "Exit"
     ]
@@ -44,6 +46,7 @@ class Main_screen_view(ctk.CTk, View):
 
     def _build(self):
         self._make_title()
+        self._make_coins_inputs()
         self._make_options()
 
     def _make_title(self):
@@ -53,6 +56,14 @@ class Main_screen_view(ctk.CTk, View):
             font=("Helvetica", 20)
         )
         title.pack(fill="x")
+
+    def _make_coins_inputs(self):
+        frame_coins = ctk.CTkFrame(self.mainFrame)
+        frame_coins.pack(fill="x", padx=self.PAD, pady=self.PAD)
+
+        for COIN_TYPE in self.COINS.keys():
+            self.__log.log_info(COIN_TYPE)
+            self.__log.log_info(self.COINS[COIN_TYPE])
 
     def _make_options(self):
         frame_buttons = ctk.CTkFrame(self.mainFrame)
