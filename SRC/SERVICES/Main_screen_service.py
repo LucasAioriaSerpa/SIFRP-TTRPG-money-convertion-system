@@ -24,11 +24,11 @@ class Main_screen_service(Service):
 
     #? adiciona valor
     def _button_add(self):
-        self.__log.log_info("Uma mensagem")
+        self.__log.log_info("adicionando os baguio :]")
 
     #? remove valor
     def _button_debit(self):
-        ...
+        self.__log.log_info("debitando os baguio :[")
 
     """@Override!"""
     def main(self): self.main_screen_view.main()
