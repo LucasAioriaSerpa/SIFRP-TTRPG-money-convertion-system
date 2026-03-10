@@ -24,7 +24,7 @@ class Main_screen_service(Service):
 
     #? adiciona valor
     def _button_add(self):
-        ...
+        self.__log.log_info("Uma mensagem")
 
     #? remove valor
     def _button_debit(self):
