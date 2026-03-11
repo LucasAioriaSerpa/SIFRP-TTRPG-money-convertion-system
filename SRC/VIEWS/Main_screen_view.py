@@ -23,7 +23,6 @@ class Main_screen_view(ctk.CTk, View):
     BUTTON_CAPTION = [
         "Add",
         "Debit",
-        "My button",
         "Exit"
     ]
 
