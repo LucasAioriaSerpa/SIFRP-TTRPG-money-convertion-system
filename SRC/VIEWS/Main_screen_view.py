@@ -52,33 +52,31 @@ class Main_screen_view(ctk.CTk, View):
     def _make_title(self):
         title = ctk.CTkLabel(
             master=self.mainFrame,
-            text="Hello world!",
+            text="Convertor de moedas do sistema SIFRP-TTRPG!",
             font=("Helvetica", 20)
         )
         title.pack(fill="x")
 
     def _make_coins_inputs(self):
         frame_coins = ctk.CTkFrame(self.mainFrame)
-        frame_coins.pack(fill="x", padx=self.PAD, pady=self.PAD)
+        frame_coins.pack(padx=self.PAD, pady=self.PAD)
 
         for COIN_TYPE, COIN_SUB_TYPE_OBJ in self.COINS.items():
             self.__log.log_info(COIN_TYPE)
             self.__log.log_info(COIN_SUB_TYPE_OBJ)
             
             type = ctk.CTkLabel(frame_coins, text=COIN_TYPE.upper())
-            type.pack(fill="x")
-
-            frame_coins_subTypes = ctk.CTkFrame(frame_coins)
-            frame_coins_subTypes.pack(fill="x", padx=self.PAD/2, pady=self.PAD/2)
+            type.pack()
 
             for COIN_SUB_TYPE, COIN_VALUE in COIN_SUB_TYPE_OBJ.items():
                 self.__log.log_info(COIN_SUB_TYPE)
                 self.__log.log_info(COIN_VALUE)
 
-                subType = ctk.CTkLabel(frame_coins_subTypes, text=COIN_SUB_TYPE)
-                subType.pack(fill="x")
-                value = ctk.CTkLabel(frame_coins_subTypes, text=COIN_VALUE)
-                value.pack(fill="x")
+                subType = ctk.CTkLabel(frame_coins, text=f"{COIN_SUB_TYPE}: ")
+                subType.pack(side="left")
+
+                value = ctk.CTkLabel(frame_coins, text=COIN_VALUE)
+                value.pack(side="left")
 
     def _make_options(self):
         frame_buttons = ctk.CTkFrame(self.mainFrame)

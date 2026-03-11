@@ -1,13 +1,15 @@
 from SRC.UTILS.Logger import Logger
-from SRC.Main import Main
+from SRC.CORE.Core import Core
 
 class Launcher:
     __log = Logger()
-    __main = Main()
     def __init__(self) -> None: self.__log.log_info("Launcher inicializando...")
 
     def run(self) -> None:
         self.__log.log_info("Inicializando Software...")
-        self.__main.run()
+        try:
+            APP = Core.openService("Main_screen")
+            APP.main()
+        except Exception as e: self.__log.log_error(str(e))
 
 if __name__ == "__main__": Launcher().run()
