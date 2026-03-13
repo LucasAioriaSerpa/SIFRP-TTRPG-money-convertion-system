@@ -18,7 +18,6 @@ class Main_screen_service(Service):
         """
         
         match caption:
-            case "My button":   self.__log.log_info("Hello world!")
             case "Add":         self._button_add()
             case "Debit":       self._button_debit()
 
