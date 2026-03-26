@@ -6,8 +6,8 @@ import customtkinter as ctk
 class Main_screen_view(ctk.CTk, View):
     __log = Logger()
 
-    PAD = 10
-    SIZE_INPUT_COINS = ({"x": 40, "y": 30})
+    PAD = 20
+    SIZE_INPUT_COINS = ({"x": 40, "y": 10})
     COIN_TYPES = [
         "cobres",
         "pratas",
@@ -52,7 +52,7 @@ class Main_screen_view(ctk.CTk, View):
         self.mainFrame = ctk.CTkFrame(self)
         self.mainFrame.pack(padx=self.PAD, pady=self.PAD, fill="both", expand=True)
 
-        self.mainFrame.grid_columnconfigure((0), weight=1)
+        self.mainFrame.grid_columnconfigure(0, weight=1)
 
     def _build(self):
         self._make_title()
@@ -104,7 +104,7 @@ class Main_screen_view(ctk.CTk, View):
         )
 
         title_label = ctk.CTkLabel(master=frame, text=title, font=font)
-        title_label.grid(row=1, column=0, sticky="nsew")
+        title_label.grid(row=0, column=0, sticky="nsew")
 
         return frame
 
