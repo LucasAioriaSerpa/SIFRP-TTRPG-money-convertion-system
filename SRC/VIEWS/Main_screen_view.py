@@ -27,6 +27,7 @@ class Main_screen_view(ctk.CTk, View):
         },
         "ouro": { "dragão(ões)DeOuro(s)": 0 }
     }
+    INPUT_COINS = {}
     BUTTON_CAPTION = [
         "Add",
         "Debit",
@@ -141,6 +142,8 @@ class Main_screen_view(ctk.CTk, View):
                     width=self.SIZE_INPUT_COINS["x"], height=self.SIZE_INPUT_COINS["y"]
                 )
                 input_.grid(row=ROW_SUB_COIN_TYPE, column=1, padx=self.PAD, sticky="nsew")
+                
+                self.INPUT_COINS.update({COIN_TYPE: {COIN_SUB_TYPE: input_}})
 
             ROW_COIN_TYPE = ROW_SUB_COIN_TYPE + 1
 
