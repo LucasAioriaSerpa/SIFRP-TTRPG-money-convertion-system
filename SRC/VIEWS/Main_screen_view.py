@@ -143,6 +143,7 @@ class Main_screen_view(ctk.CTk, View):
                 )
                 input_.grid(row=ROW_SUB_COIN_TYPE, column=1, padx=self.PAD, sticky="nsew")
                 
+                if COIN_TYPE in self.INPUT_COINS: self.INPUT_COINS[COIN_TYPE].update({COIN_SUB_TYPE: input_}); continue
                 self.INPUT_COINS.update({COIN_TYPE: {COIN_SUB_TYPE: input_}})
 
             ROW_COIN_TYPE = ROW_SUB_COIN_TYPE + 1
