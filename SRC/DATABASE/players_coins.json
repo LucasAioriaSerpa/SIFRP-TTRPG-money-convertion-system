@@ -1,0 +1,30 @@
+{
+  "player01": {
+    "coins": {
+      "cobres": {
+        "meioVintém(ns)": 0,
+        "vintém(ns)": 0,
+        "meioTostão(ões)": 0,
+        "tostão(ões)": 0,
+        "estrela(s)": 0
+      },
+      "pratas": {
+        "gamo(s)": 0,
+        "lua(s)": 0
+      },
+      "ouros": {
+        "dragão(ões)DeOuro(s)": 0
+      }
+    },
+    "history": {
+      "[insert datatime here 📆] - 01": {
+        "coin-type1": "+15",
+        "coin-type2": "-10"
+      },
+      "[insert datatime here 📆] - 02": {
+        "coin-type3": "-75",
+        "coin-type5": "+8"
+      }
+    }
+  }
+}

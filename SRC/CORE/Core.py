@@ -1,6 +1,4 @@
 from SRC.UTILS.Logger import Logger
-from SRC.config import APP_PATH
-import os
 import importlib
 
 class Core:
@@ -15,16 +13,17 @@ class Core:
     
     @staticmethod
     def openService(service):
+        log = Logger()
         response = None
 
         #? Set service name
         service = service[0].upper()+service[1:]
         serviceName = f"{service}_service"
 
-        #? Check if file exists
-        if os.path.exists(f"{APP_PATH}/SERVICES/{serviceName}.py"):
+        #? Try to get Service module
+        try:
             module = importlib.import_module(f"SRC.SERVICES.{serviceName}")
             class_ = getattr(module, serviceName)
             response = class_()
-
+        except (ImportError, AttributeError) as e: log.log_error(f"Erro ao importar o modulo: {e}")
         return response

@@ -1,6 +1,4 @@
 from SRC.UTILS.Logger import Logger
-from SRC.config import APP_PATH
-import os
 import importlib
 import abc
 
@@ -20,15 +18,17 @@ class Service(metaclass=abc.ABCMeta):
         @param viewName:string View to be opened
     """
     def loadView(self, viewName):
+        log = Logger()
         response = None
         
         #? Set view name
         viewName = viewName[0].upper()+viewName[1:]+"_view"
         
-        #? Check if file exists
-        if os.path.exists(f"{APP_PATH}/VIEWS/{viewName}.py"):
+        #? Try to get View module
+        try:
             module = importlib.import_module("SRC.VIEWS."+viewName)
             class_ = getattr(module, viewName)
             response = class_(self)
-        
+        except (ImportError, AttributeError) as e: log.log_error(f"Erro ao importar o modulo: {e}")
+
         return response
